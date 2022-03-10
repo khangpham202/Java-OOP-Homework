@@ -39,7 +39,7 @@ public class Matrix {
         
         // Reading data to first matrix
         readMatrix(scanner, firstMatrix);
-        // Reading data  first matrix
+        // Reading data  second matrix
         readMatrix(scanner, secondMatrix);
         System.out.println("a) Hien thi 2 ma tran len man hinh:");
         System.out.println("First Matrix");
