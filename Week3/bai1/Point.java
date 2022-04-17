@@ -1,4 +1,5 @@
 import java.util.Scanner;
+import java.util.Vector;
 
 public class Point {
     public Point() {
@@ -37,8 +38,9 @@ public class Point {
     }
 
     public void show() {
-        System.out.printf("(%.2f, %.2f)", x, y);
-        System.out.println();
+        System.out.printf("(%.1f, %.1f)", x, y);
+        // System.out.println();
+
     }
 
     public boolean isCollinear(Point a, Point b) {
@@ -57,4 +59,14 @@ public class Point {
         return distance;
     }
 
+    public void LineThrough2Points(Point a) {
+        Vector<Double> vtpt = new Vector<>();
+        vtpt.add((double) (this.y - a.y));
+        vtpt.add((double) (a.x - this.x));
+        double c = (vtpt.get(0) * (-this.x)) + (vtpt.get(1) * (-this.y));
+
+        System.out.println("Phuong trinh duong thang di qua 2 diem la: " + vtpt.get(0) +
+                " x + " + vtpt.get(1) + " y + " + c +
+                " = 0");
+    }
 }
