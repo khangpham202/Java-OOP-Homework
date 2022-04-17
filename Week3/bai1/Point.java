@@ -65,7 +65,7 @@ public class Point {
         vtpt.add((double) (a.x - this.x));
         double c = (vtpt.get(0) * (-this.x)) + (vtpt.get(1) * (-this.y));
 
-        System.out.println("Phuong trinh duong thang di qua 2 diem la: " + vtpt.get(0) +
+        System.out.println("Phuong trinh duong thang di qua 2 diem a va b la: " + vtpt.get(0) +
                 " x + " + vtpt.get(1) + " y + " + c +
                 " = 0");
     }
