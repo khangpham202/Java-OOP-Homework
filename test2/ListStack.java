@@ -15,6 +15,7 @@ class ListStack implements Stack {
     }
 
     public void push(int x) {
+
         ListElem e = new ListElem(x);
         e.next = head;
         head = e;

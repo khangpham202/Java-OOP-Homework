@@ -10,6 +10,7 @@ public class testProg1 {
     }
 
     public static void show(Integer[] a) {
+        System.out.print("Ngan xep sau khi dao nguoc la: ");
         for (int i = 0; i < a.length; i++) {
             System.out.print(a[i] + " ");
         }
@@ -24,18 +25,10 @@ public class testProg1 {
         s.push(3);
         s.push(4);
         s.push(5);
-        // System.out.println(s.pop());
-        // System.out.println(s.peek());
-        // System.out.println(s.peek());
-        // b[0] = s.pop();
-        // b[1] = s.pop();
-        // b[2] = s.pop();
-        // b[3] = s.pop();
-        // b[4] = s.pop();
-        // System.out.print("Ngan xep sau khi dao nguoc la: ");
-        // for (int i = 0; i < b.length; i++) {
-        // System.out.print(b[i] + " ");
-        // }
+        System.out.println(s.pop());
+        System.out.println(s.peek());
+        System.out.println(s.peek());
+
         Integer[] c = { 1, 2, 3, 4, 5 };
         show(reverse(c));
     }

@@ -1,7 +1,11 @@
 interface Stack {
-    public void push(int x);
+    public int size();
 
-    public int pop();
+    public void push(int x) throws StackFullException;
+
+    public boolean isEmpty();
+
+    public int pop() throws StackEmptyException;
 
     public int peek();
 }
