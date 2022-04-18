@@ -22,9 +22,11 @@ public class Matrix {
             System.out.println();
         }
     }
-    
-   
-       public static void main(final String... args) throws FileNotFoundException {
+
+    public static void main(final String... args) throws FileNotFoundException { // Một file được chỉ định với đường dẫn
+                                                                                 // tồn tại nhưng không thể truy xuất
+                                                                                 // được vì một lý do gì đó chẳng hạn
+                                                                                 // như không có quyền truy cập v.v
         final Scanner scanner = new Scanner(new File("a.txt"));
 
         final int n1 = scanner.nextInt();
@@ -36,48 +38,49 @@ public class Matrix {
         final int[][] secondMatrix = new int[n1][n2];
         final int[][] sum = new int[n1][n2];
         final int[][] multiply = new int[n1][n2];
-        
+
         // Reading data to first matrix
         readMatrix(scanner, firstMatrix);
-        // Reading data  second matrix
+        // Reading data second matrix
         readMatrix(scanner, secondMatrix);
         System.out.println("a) Hien thi 2 ma tran len man hinh:");
         System.out.println("First Matrix");
         displayMatrix(firstMatrix);
         System.out.println("Second Matrix");
         displayMatrix(secondMatrix);
-        for(int i = 0; i <= n1-1; i++){
-            for(int j = 0; j <= n2-1; j++){
-                sum[i][j] = firstMatrix[i][j] +  secondMatrix[i][j];
+        for (int i = 0; i <= n1 - 1; i++) {
+            for (int j = 0; j <= n2 - 1; j++) {
+                sum[i][j] = firstMatrix[i][j] + secondMatrix[i][j];
             }
         }
         System.out.println("b) Tong hai ma tran:");
-        for(int i = 0; i <= n1-1; i++){
-            for(int j = 0; j <= n2-1; j++){
-                sum[i][j] = firstMatrix[i][j] +  secondMatrix[i][j];
+        for (int i = 0; i <= n1 - 1; i++) {
+            for (int j = 0; j <= n2 - 1; j++) {
+                sum[i][j] = firstMatrix[i][j] + secondMatrix[i][j];
                 System.out.print(sum[i][j] + " ");
             }
             System.out.println();
         }
         System.out.println("c) Tich hai ma tran:");
-        for (int i = 0; i <= n1-1; i++) {
-            for (int j = 0; j <= n2-1; j++) {
+        for (int i = 0; i <= n1 - 1; i++) {
+            for (int j = 0; j <= n2 - 1; j++) {
                 multiply[i][j] = 0;
                 for (int k = 0; k < 3; k++) {
                     multiply[i][j] += firstMatrix[i][k] * secondMatrix[k][j];
-                } 
-                System.out.print(multiply[i][j] + " "); 
-            } 
+                }
+                System.out.print(multiply[i][j] + " ");
+            }
             System.out.println();
         }
     }
 }
-/*  File a.txt  
-3 3 
-1 2 3
-4 5 6
-7 8 9
-9 8 7 
-6 5 4
-3 2 1
-*/
+/*
+ * File a.txt
+ * 3 3
+ * 1 2 3
+ * 4 5 6
+ * 7 8 9
+ * 9 8 7
+ * 6 5 4
+ * 3 2 1
+ */
