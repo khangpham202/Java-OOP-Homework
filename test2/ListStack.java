@@ -26,4 +26,8 @@ class ListStack implements Stack {
         head = head.next;
         return returnItem;
     }
+
+    public int peek() {
+        return head.item;
+    }
 }

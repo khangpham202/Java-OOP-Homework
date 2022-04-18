@@ -32,6 +32,5 @@ class ArrayStack implements Stack {
 
     public int peek() {
         return item[stackTop - 1]; // Get last stored item
-        return returnItem;
     }
 }
