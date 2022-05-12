@@ -7,7 +7,7 @@ public class Main {
     public static void main(String[] args) {
         ConnectJDBC connectJDBC = new ConnectJDBC();
         Connection conn = connectJDBC.connect();
-
+        ////////////////////// select
         String query = "SELECT * FROM books";
 
         Statement stm = null;
@@ -29,55 +29,49 @@ public class Main {
         } catch (SQLException e) {
             e.printStackTrace();
         }
+        // delete
+        // String query3 = "DELETE FROM books WHERE id = ?";
+        //
+        // PreparedStatement delete = null;
+        // try {
+        // delete = conn.prepareStatement(query3);
+        //
+        // delete.setInt(1, 1004);
+        //
+        // int row3 = delete.executeUpdate();
+        // if (row3 != 0) {
+        // System.out.println("Xóa thành công ");
+        // }
+        //
+        // } catch (SQLException e) {
+        // e.printStackTrace();
+        // }
 
-        String query3 = "DELETE FROM books WHERE id = ?";
-
-        PreparedStatement delete = null;
-        try {
-            delete = conn.prepareStatement(query3);
-
-            delete.setInt(1, 1006);
-
-            int row3 = delete.executeUpdate();
-            if (row3 != 0) {
-                System.out.println("Xóa thành công " + row3);
-            }
-
-        } catch (SQLException e) {
-            e.printStackTrace();
-        }
-
-        // insert
-        String query1 = "INSERT INTO books(id, title, author, price, qty) " + "VALUES(?, ?, ?, ?, ?)";
-
-        PreparedStatement pstm = null;
-        try {
-            pstm = conn.prepareStatement(query1);
-
-            pstm.setString(1, "1006");
-            pstm.setString(2, "Areca");
-            pstm.setString(3, "Khang");
-            pstm.setString(4, "66.66");
-            pstm.setString(5, "66");
-
-            int row = pstm.executeUpdate();
-            if (row != 0) {
-                System.out.println("Thêm thành công " + row);
-            }
-        } catch (SQLException e) {
-            e.printStackTrace();
-        }
-
-        // update
+        ////////////////////// insert
+        // try{
+        // Statement st = conn.createStatement();
+        //
+        // // note that i'm leaving "date_created" out of this insert statement
+        // st.executeUpdate("INSERT INTO books (id, title, author,price, qty) "
+        // +"VALUES (1004, 'Doraemon', 'Mason',25.25, 5)");
+        //
+        // conn.close();
+        // }
+        // catch (Exception e)
+        // {
+        // System.err.println("Got an exception!");
+        // System.err.println(e.getMessage());
+        // }
+        //
+        ////////////////////// update
         String query2 = "UPDATE books SET qty = ? WHERE id = ?";
 
         PreparedStatement update = null;
         try {
             update = conn.prepareStatement(query2);
 
-            update.setInt(1, 88);
-            update.setInt(2, 1005);
-
+            update.setInt(1, 20);
+            update.setInt(2, 1004);
             int row2 = update.executeUpdate();
             if (row2 != 0) {
                 System.out.println("Cập nhật thành công " + row2);
@@ -85,6 +79,9 @@ public class Main {
         } catch (SQLException e) {
             e.printStackTrace();
         }
+        //
+        System.out.println("-----------------------");
+        ////////////////////// select
 
         String query4 = "SELECT * FROM books";
 
@@ -101,7 +98,7 @@ public class Main {
                 double price = rs.getDouble("price");
                 int qty = rs.getInt("qty");
 
-                System.out.println(id + " - " + title + " - " + author + " - " + price + " -" + qty);
+                System.out.println(id + " - " + title + " - " + author + " - " + price + " - " + qty);
             }
             conn.close();
         } catch (SQLException e) {

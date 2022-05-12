@@ -4,17 +4,17 @@ import java.sql.DriverManager;
 import java.sql.SQLException;
 
 public class ConnectJDBC {
-    private String hostName = "localhost:3306";
-    private String dbName = "ebookshop";
     private String username = "root";
     private String password = "1";
-    private String connectionURL = "jdbc:mysql://" + hostName + "/" + dbName;
+
+    private String connectionURL = "jdbc:mysql://127.0.0.1:3306/ebookshop";
 
     public Connection connect() {
         // Tạo đối tượng Connection
         Connection conn = null;
 
         try {
+
             conn = DriverManager.getConnection(connectionURL, username, password);
             System.out.println("Kết nối thành công");
         } catch (SQLException e) {
