@@ -17,10 +17,9 @@ class Complex {
      */
     public String toString() {
         StringBuffer sb = new StringBuffer().append(r);
-
-        if(r == 0){
-            return 
-        }
+        if (i > 0)
+            sb.append('+');
+        return sb.append(i).append('i').toString();
     }
 
     /** Return just the Real part */
