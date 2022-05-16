@@ -11,16 +11,15 @@ class Complex {
         i = ii;
     }
 
-    /**
-     * Display the current Complex as a String, for use in
-     * println() and elsewhere.
-     */
-    public String toString() {
-        StringBuffer sb = new StringBuffer().append(r);
-        if (i > 0)
-            sb.append('+');
-        return sb.append(i).append('i').toString();
+    public String toString(){
+        if(r == 0)
+            return (Double.toString(i) +"i");
+        else if(i == 0)
+            return (Double.toString(r));
+        else 
+            return (Double.toString(r) + " + " + Double.toString(i) + "i");
     }
+
 
     /** Return just the Real part */
     public double getReal() {
@@ -37,12 +36,7 @@ class Complex {
         return Math.sqrt(r * r + i * i);
     }
 
-    /**
-     * Add another Complex to this one
-     */
-    public Complex add(Complex other) {
-        return add(this, other);
-    }
+   
 
     /**
      * Add two Complexes
@@ -51,12 +45,7 @@ class Complex {
         return new Complex(c1.r + c2.r, c1.i + c2.i);
     }
 
-    /**
-     * Subtract another Complex from this one
-     */
-    public Complex subtract(Complex other) {
-        return subtract(this, other);
-    }
+   
 
     /**
      * Subtract two Complexes
@@ -66,19 +55,17 @@ class Complex {
     }
 
     /**
-     * Multiply this Complex times another one
-     */
-    public Complex multiply(Complex other) {
-        return multiply(this, other);
-    }
-
-    /**
      * Multiply two Complexes
      */
     public static Complex multiply(Complex c1, Complex c2) {
         return new Complex(c1.r * c2.r - c1.i * c2.i, c1.r * c2.i + c1.i * c2.r);
     }
-
+     /**
+     * Multiply a complex number by a real number
+     */
+    public Complex multiplyByRnumBer(double c){
+        return new Complex(r *c, i *c);
+    }
     /**
      * Divide c1 by c2.
      */
